@@ -1,0 +1,59 @@
+body{
+    margin:0;
+    font-family: 'Nova Round', cursive;
+}
+.main-container{
+    display:grid;
+    width:100%;
+    height: 100vh;
+    justify-items: center;
+    align-items: center;
+    background-color: rgb(84, 45, 94)
+}
+.game-board{
+    width:40vh;
+    height:40vh;
+    display: grid;
+    border-radius: 5px;
+    justify-items: center;
+    align-items: center;
+    grid-template-columns: 1fr 1fr 1fr;
+    background-color: rgb(163, 65, 150)
+}
+.cell{
+    width:65px;
+    height:65px;
+    cursor:pointer;
+    border-radius: 5px;
+    box-shadow: .5px 1px rgb(75, 70, 70);
+    transition: all ease .5s;
+    font-weight: bolder;
+    font-size: 3em;
+}
+.cell:hover{
+    box-shadow: 2px 3px rgb(75, 70, 70);
+    transform: scale3d(1.2, 1.2, 0.3)
+
+}
+.reset{
+    visibility: hidden;
+    align-self: stretch;
+    border-radius: 10px;
+    border: 1px solid rgb(173, 104, 238);
+    width: 150px;
+    height:30px;
+    background-color: violet;
+    color: white;
+    font-size: 1.2em;
+    transition: all ease .5s;
+    cursor: pointer;    
+}
+.reset:hover{
+    box-shadow: 2px 3px rgb(75, 70, 70);
+    transform: scale3d(1.2, 1.2, 0.3)
+}
+.winnerName{
+    font-size: 1.1em;
+}
+button:focus {outline:0;}
+
