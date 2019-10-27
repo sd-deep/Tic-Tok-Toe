@@ -59,7 +59,7 @@ function resetAll() {
         button.innerText = '';
         button.disabled = false;
         button.style.backgroundColor = '';
-        document.getElementById('winnerName').innerText = ``
+        document.getElementById('winnerName').style.visibility = 'hidden'
         clickCount = 0;
         player1Responses = '';
         player2Responses = '';
@@ -146,7 +146,8 @@ function changeButtonColor(buttonIds){
 }
 
 function declareWinner(player){
-    document.getElementById('winnerName').innerHTML = `The WINNER is ${player}`
+    document.getElementById('winnerName').style.visibility = 'visible'
+    document.getElementById('winnerName').innerText = `The WINNER is ${player}`
     console.log(`The winner is ${player}`)
 }
 

@@ -52,8 +52,10 @@ body{
     box-shadow: 2px 3px rgb(75, 70, 70);
     transform: scale3d(1.2, 1.2, 0.3)
 }
-.winnerName{
+#winnerName{
+    visibility: hidden;
     font-size: 1.1em;
+    color : white;
 }
 button:focus {outline:0;}
 
