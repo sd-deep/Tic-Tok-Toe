@@ -1,3 +1,4 @@
+
 body{
     margin:0;
     font-family: 'Nova Round', cursive;
@@ -11,10 +12,26 @@ body{
     align-items: center;
     background-color: rgb(84, 45, 94)
 }
+#resetGameButton{
+    position:absolute;
+    right: 20px;
+    top: 20px;
+    cursor: pointer;
+    font-size: 2em;
+}
 .heading{
     align-self: end;
     animation-duration: 2s;
     animation-delay: 1s;
+}
+.scoreBoard{
+    margin-bottom: 10px;
+}
+#player1Name{
+    cursor:pointer;
+}
+#player2Name{
+    cursor:pointer;
 }
 .game-board{
     width:40vh;
@@ -23,12 +40,14 @@ body{
     border-radius: 5px;
     justify-items: center;
     align-items: center;
+    gap: 15px;
     grid-template-columns: 1fr 1fr 1fr;
-    background-color: rgb(163, 65, 150)
+    grid-template-rows: 1fr 1fr 1fr;
+    background-color: rgb(163, 65, 150);
 }
 .cell{
-    width:65px;
-    height:65px;
+    width:1.2em;
+    height:1.2em;
     cursor:pointer;
     border-radius: 5px;
     box-shadow: .5px 1px rgb(75, 70, 70);
@@ -38,7 +57,7 @@ body{
 }
 .cell:hover{
     box-shadow: 2px 3px rgb(75, 70, 70);
-    transform: scale3d(1.2, 1.2, 0.3)
+    transform: scale3d(1.1, 1.1, 0.3)
 
 }
 .reset{

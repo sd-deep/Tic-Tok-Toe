@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,12 +10,22 @@
     <script src="app.js" defer></script>
     <link href="https://fonts.googleapis.com/css?family=Nova+Round&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet">
 </head>
-<body>
-    
-    <div class="main-container">
 
-        <h1 class="heading rubberBand">Tic-Tok-Toe</h1>
+<body>
+
+    <div class="main-container">
+        <i id="resetGameButton" class="material-icons">
+            settings_backup_restore
+        </i>
+        <div class="scoreBoard">
+            <h1 class="heading rubberBand">Tic-Tok-Toe</h1>
+            <h3>Score:</h3>
+            <span id="player1Name">Player 1: </span><span id="player1Score"></span>
+            <span id="player2Name">Player 2: </span><span id="player2Score"></span>
+        </div>
         <div class="game-board">
             <button class="cell" id="1"></button>
             <button class="cell" id="2"></button>
@@ -29,6 +40,7 @@
         <div id="winnerName">It is a Draw!! Try again</div>
         <button class="reset">Play Again</button>
     </div>
-    
+
 </body>
+
 </html>

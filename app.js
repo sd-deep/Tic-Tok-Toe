@@ -1,5 +1,16 @@
+
+//change players name 
+
+let player1Name = document.getElementById('player1Name');
+let player2Name = document.getElementById('player2Name')
+
+
+
+
+
 buttons = document.querySelectorAll('.cell');
 let clickCount = 0;
+
 buttons.forEach(button => {
     button.addEventListener('click', e => {
         startGame(e)
@@ -8,6 +19,21 @@ buttons.forEach(button => {
 
 resetButton = document.querySelector('.reset')
 resetButton.addEventListener('click', resetAll)
+
+//score counter for player 1 and player 2
+let player1Score = 0;
+let player2Score = 0;
+
+//Score Reset button
+let scoreResetButton = document.getElementById('resetGameButton');
+scoreResetButton.addEventListener('click',resetScore)
+
+function resetScore(){
+
+    localStorage.removeItem('player1Score')
+    localStorage.removeItem('player2Score')
+    window.location.reload();
+}
 
 // winning conditions 123, 456, 789, 147, 258, 369, 159, 357
 let player1Responses = '';
@@ -31,11 +57,16 @@ function startGame(e) {
     if (player1IsWinner) {
         disableAllButtons()
         makeResetButtonAppearDisappear(true)
-        declareWinner('Player 1')
+        player1Score++;
+        localStorage.setItem('player1Score',player1Score)
+        declareWinner('Player 1');
+
     } else if (player2IsWinner) {
         disableAllButtons()
         makeResetButtonAppearDisappear(true)
-        declareWinner('Player 2')
+        player2Score++;
+        localStorage.setItem('player2Score',player2Score)
+        declareWinner('Player 2');
     } 
     if (checkCounter && !player1IsWinner && !player2IsWinner) {
         declareWinner(null)
@@ -60,6 +91,7 @@ function disableAllButtons() {
 }
 
 function resetAll() {
+    updatePlayerScore()
     buttons.forEach(button => {
         button.innerText = '';
         button.disabled = false;
@@ -156,6 +188,7 @@ function changeButtonColor(buttonIds) {
 }
 
 function declareWinner(player) {
+    updatePlayerScore();
     document.getElementById('winnerName').style.visibility = 'visible'
     document.getElementById('winnerName').classList.add('animated', 'bounceInLeft')
     if (player === null) {
@@ -165,5 +198,15 @@ function declareWinner(player) {
     }
 
 }
+
+player1Score = localStorage.getItem('player1Score') || player1Score;
+player2Score = localStorage.getItem('player2Score') || player2Score; 
+updatePlayerScore();
+function updatePlayerScore(){
+    document.getElementById('player1Score').innerText = `${player1Score }`;
+    document.getElementById('player2Score').innerText =`${player2Score}`;
+    
+}
+
 
 
