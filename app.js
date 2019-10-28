@@ -60,6 +60,8 @@ function resetAll() {
         button.disabled = false;
         button.style.backgroundColor = '';
         document.getElementById('winnerName').style.visibility = 'hidden'
+        document.getElementById('winnerName').classList.remove('animate','bounceInLeft')
+        resetButton.classList.remove('animate','flipInX')
         clickCount = 0;
         player1Responses = '';
         player2Responses = '';
@@ -75,6 +77,7 @@ function checkClickCounter() {
 function makeResetButtonAppearDisappear(checkCounter) {
     if (checkCounter) {
         resetButton.style.visibility = "visible"
+        resetButton.classList.add('animate','flipInX')
 
     } else {
         resetButton.style.visibility = "hidden"
@@ -147,6 +150,7 @@ function changeButtonColor(buttonIds){
 
 function declareWinner(player){
     document.getElementById('winnerName').style.visibility = 'visible'
+    document.getElementById('winnerName').classList.add('animated', 'bounceInLeft')
     document.getElementById('winnerName').innerText = `The WINNER is ${player}`
     console.log(`The winner is ${player}`)
 }
