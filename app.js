@@ -1,12 +1,22 @@
+//Navigation
+const hamburger = document.querySelector(".hamburger");
+const navLinks = document.querySelector(".nav-links");
+const links = document.querySelectorAll(".nav-links li");
 
+hamburger.addEventListener("click", () => {
+    document.getElementById('winnerName').style.visibility = 'hidden'
+    toggleFluidNav();
+});
+function toggleFluidNav() {
+    navLinks.classList.toggle("open");
+    links.forEach(link => {
+        link.classList.toggle("fade");
+    });
+}
 //change players name 
 
 let player1Name = document.getElementById('player1Name');
 let player2Name = document.getElementById('player2Name')
-
-
-
-
 
 buttons = document.querySelectorAll('.cell');
 let clickCount = 0;
@@ -26,12 +36,13 @@ let player2Score = 0;
 
 //Score Reset button
 let scoreResetButton = document.getElementById('resetGameButton');
-scoreResetButton.addEventListener('click',resetScore)
+scoreResetButton.addEventListener('click', resetScore)
 
-function resetScore(){
+function resetScore() {
 
     localStorage.removeItem('player1Score')
     localStorage.removeItem('player2Score')
+    
     window.location.reload();
 }
 
@@ -53,21 +64,21 @@ function startGame(e) {
     }
     let player1IsWinner = checkWinner(player1Responses);
     let player2IsWinner = checkWinner(player2Responses);
-    
+
     if (player1IsWinner) {
         disableAllButtons()
         makeResetButtonAppearDisappear(true)
         player1Score++;
-        localStorage.setItem('player1Score',player1Score)
+        localStorage.setItem('player1Score', player1Score)
         declareWinner('Player 1');
 
     } else if (player2IsWinner) {
         disableAllButtons()
         makeResetButtonAppearDisappear(true)
         player2Score++;
-        localStorage.setItem('player2Score',player2Score)
+        localStorage.setItem('player2Score', player2Score)
         declareWinner('Player 2');
-    } 
+    }
     if (checkCounter && !player1IsWinner && !player2IsWinner) {
         declareWinner(null)
     }
@@ -176,7 +187,7 @@ function checkWinner(response) {
                 return true;
             }
         }
-    } else if(response.length === 9){
+    } else if (response.length === 9) {
         return false;
     }
 }
@@ -200,12 +211,12 @@ function declareWinner(player) {
 }
 
 player1Score = localStorage.getItem('player1Score') || player1Score;
-player2Score = localStorage.getItem('player2Score') || player2Score; 
+player2Score = localStorage.getItem('player2Score') || player2Score;
 updatePlayerScore();
-function updatePlayerScore(){
-    document.getElementById('player1Score').innerText = `${player1Score }`;
-    document.getElementById('player2Score').innerText =`${player2Score}`;
-    
+function updatePlayerScore() {
+    document.getElementById('player1Score').innerText = `${player1Score}`;
+    document.getElementById('player2Score').innerText = `${player2Score}`;
+
 }
 
 

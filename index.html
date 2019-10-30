@@ -10,16 +10,26 @@
     <script src="app.js" defer></script>
     <link href="https://fonts.googleapis.com/css?family=Nova+Round&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css">
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
-      rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 </head>
 
 <body>
-
+    <nav>
+        <div class="hamburger">
+            <div class="line"></div>
+            <div class="line"></div>
+            <div class="line"></div>
+        </div>
+        <ul class="nav-links">
+            <li>
+                <a href="#" id="resetGameButton">Restart Match</a>
+            </li>
+            <li><a href="#">Single Player Mode<span>comming soon</span></a></li>
+            <li><a href="#">SignIn with Google<span>comming soon</span></a></li>
+        </ul>
+    </nav>
     <div class="main-container">
-        <i id="resetGameButton" class="material-icons">
-            settings_backup_restore
-        </i>
+
         <div class="scoreBoard">
             <h1 class="heading rubberBand">Tic-Tok-Toe</h1>
             <h3>Score:</h3>
@@ -41,6 +51,30 @@
         <button class="reset">Play Again</button>
     </div>
 
+
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/7.2.2/firebase-app.js"></script>
+
+    <!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+    <script src="https://www.gstatic.com/firebasejs/7.2.2/firebase-analytics.js"></script>
+
+    <script>
+        // Your web app's Firebase configuration
+        var firebaseConfig = {
+            apiKey: "AIzaSyCnTNO9SbcP27TYTLUvu5vsw-0Jl9O73h8",
+            authDomain: "tic-tok-toe.firebaseapp.com",
+            databaseURL: "https://tic-tok-toe.firebaseio.com",
+            projectId: "tic-tok-toe",
+            storageBucket: "tic-tok-toe.appspot.com",
+            messagingSenderId: "79219547917",
+            appId: "1:79219547917:web:58dbbfe55992ab26d8da44",
+            measurementId: "G-HKZ70DVCXD"
+        };
+        // Initialize Firebase
+        firebase.initializeApp(firebaseConfig);
+        firebase.analytics();
+    </script>
 </body>
 
 </html>
