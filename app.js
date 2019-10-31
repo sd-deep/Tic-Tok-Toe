@@ -131,7 +131,6 @@ function makeResetButtonAppearDisappear(checkCounter) {
         resetButton.style.visibility = "hidden"
     }
 }
-
 function checkWinner(response) {
     console.log(response)
     if (response.includes('1')) {
