@@ -42,7 +42,7 @@ function resetScore() {
 
     localStorage.removeItem('player1Score')
     localStorage.removeItem('player2Score')
-    
+
     window.location.reload();
 }
 
@@ -135,20 +135,24 @@ function makeResetButtonAppearDisappear(checkCounter) {
 function checkWinner(response) {
     console.log(response)
     if (response.includes('1')) {
-        if (response.includes('2')) {
+        if (response.includes('2' || '4' || '5')) {
             if (response.includes('3')) {
-                changeButtonColor([1, 2, 3])
-                return true;
+                if (response.includes('2')) {
+                    changeButtonColor([1, 2, 3])
+                    return true;
+                }
             }
-        } else if (response.includes('4')) {
             if (response.includes('7')) {
-                changeButtonColor([1, 4, 7])
-                return true;
+                if (response.includes('4')) {
+                    changeButtonColor([1, 4, 7])
+                    return true;
+                }
             }
-        } else if (response.includes('5')) {
-            if (response.includes('9')) {
-                changeButtonColor([1, 5, 9])
-                return true;
+            if (response.includes('5')) {
+                if (response.includes('9')) {
+                    changeButtonColor([1, 5, 9])
+                    return true;
+                }
             }
         }
     }
@@ -161,17 +165,19 @@ function checkWinner(response) {
         }
     }
     if (response.includes('3')) {
-        if (response.includes('6')) {
+        if (response.includes('6' || '5')) {
             if (response.includes('9')) {
-                changeButtonColor([3, 6, 9])
-                return true;
+                if (response.includes('6')) {
+                    changeButtonColor([3, 6, 9])
+                    return true;
+                }
             }
-        } else if (response.includes('5')) {
             if (response.includes('7')) {
                 changeButtonColor([3, 5, 7])
                 return true;
             }
         }
+
     }
     if (response.includes('4')) {
         if (response.includes('5')) {
@@ -225,7 +231,7 @@ function updatePlayerScore() {
 // Initialize the FirebaseUI Widget using Firebase.
 
 let loggedInUser = document.getElementById('loggedInUser');
-loggedInUser.addEventListener('click',login)
+loggedInUser.addEventListener('click', login)
 var firebaseConfig = {
     apiKey: "AIzaSyCnTNO9SbcP27TYTLUvu5vsw-0Jl9O73h8",
     authDomain: "tic-tok-toe.firebaseapp.com",
@@ -242,25 +248,25 @@ firebase.analytics();
 
 var ui = new firebaseui.auth.AuthUI(firebase.auth());
 
-function login(){
+function login() {
 
-    function newLoginHappened(user){
-        if(user){
+    function newLoginHappened(user) {
+        if (user) {
             showUser(user);
-        }else{
+        } else {
             var provider = new firebase.auth.GoogleAuthProvider();
             console.log(provider)
             firebase.auth().signInWithPopup(provider)
-                .then(result=>console.log(result))
-                .catch(err=>console.log(err))
+                .then(result => console.log(result))
+                .catch(err => console.log(err))
         }
     }
     firebase.auth().onAuthStateChanged(newLoginHappened);
 
 }
 
-function showUser(user){
+function showUser(user) {
     console.log(user)
     document.getElementById('loggedInUser').innerHTML = user.displayName
-    
+
 }
