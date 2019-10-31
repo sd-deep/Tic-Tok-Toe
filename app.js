@@ -194,7 +194,7 @@ function checkWinner(response) {
 
 function changeButtonColor(buttonIds) {
     buttonIds.forEach(buttonId => {
-        document.getElementById(buttonId).style.backgroundColor = "greenyellow"
+        document.getElementById(buttonId).style.backgroundColor = "#89e200"
     })
 }
 
