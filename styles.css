@@ -12,7 +12,7 @@
   nav {
     height: 6vh;
     background: #68217e;
-    box-shadow: 2px 3px 4px 2px #4b3a4a;
+    box-shadow: 2px 4px 4px 4px #2b1f2a
   }
   
   .nav-links {
@@ -23,16 +23,22 @@
     justify-content: space-around;
     align-items: center;
     margin-left: auto;
-  }
-  
-  .nav-links li a {
-    color: white;
+}
+
+.nav-links li a {
+    color: rgb(243, 230, 50);
     text-decoration: none;
     font-size: 16px;
-  }
+}
   .nav-links li a span{
       font-size: 8px;
-  }
+    }
+  .heading{
+      align-self: end;
+      color:rgb(243, 230, 50);
+      animation-duration: 1s;
+      margin-bottom: 10px;
+    }
   .landing {
     height: 90vh;
     display: flex;
@@ -55,12 +61,10 @@
     align-items: center;
     background-color: rgb(111, 38, 129)
 }
-
-.heading{
-    align-self: end;
-    animation-duration: 1s;
-    margin-bottom: 10px;
+.scoreBoard{
+    color:white;
 }
+
 #player1Name{
     cursor:pointer;
 }
@@ -78,19 +82,20 @@
     grid-template-columns: 1fr 1fr 1fr;
     grid-template-rows: 1fr 1fr 1fr;
     background-color: rgb(163, 65, 150);
+    box-shadow: 2px 4px 4px 4px #2b1f2a;
 }
 .cell{
     width:1.2em;
     height:1.2em;
     cursor:pointer;
     border-radius: 5px;
-    box-shadow: .5px 1px rgb(75, 70, 70);
+    box-shadow: 1px 2px 2px 2px #2b1f2a;
     transition: all ease .5s;
     font-weight: bolder;
     font-size: 3em;
 }
 .cell:hover{
-    box-shadow: 2px 3px rgb(75, 70, 70);
+    box-shadow: 1px 2px 2px 2px #2b1f2a;
     transform: scale3d(1.1, 1.1, 0.3)
 
 }
@@ -101,7 +106,7 @@
     border: 1px solid rgb(173, 104, 238);
     width: 150px;
     height:30px;
-    background-color: violet;
+    background-color: rgb(163, 65, 150);;
     color: white;
     font-size: 1.2em;
     transition: all ease .5s;

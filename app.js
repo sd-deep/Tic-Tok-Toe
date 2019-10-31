@@ -220,4 +220,47 @@ function updatePlayerScore() {
 }
 
 
+// authentication
+// Your web app's Firebase configuration
+// Initialize the FirebaseUI Widget using Firebase.
 
+let loggedInUser = document.getElementById('loggedInUser');
+loggedInUser.addEventListener('click',login)
+var firebaseConfig = {
+    apiKey: "AIzaSyCnTNO9SbcP27TYTLUvu5vsw-0Jl9O73h8",
+    authDomain: "tic-tok-toe.firebaseapp.com",
+    databaseURL: "https://tic-tok-toe.firebaseio.com",
+    projectId: "tic-tok-toe",
+    storageBucket: "tic-tok-toe.appspot.com",
+    messagingSenderId: "79219547917",
+    appId: "1:79219547917:web:58dbbfe55992ab26d8da44",
+    measurementId: "G-HKZ70DVCXD"
+};
+// Initialize Firebase
+firebase.initializeApp(firebaseConfig);
+firebase.analytics();
+
+var ui = new firebaseui.auth.AuthUI(firebase.auth());
+
+function login(){
+
+    function newLoginHappened(user){
+        if(user){
+            showUser(user);
+        }else{
+            var provider = new firebase.auth.GoogleAuthProvider();
+            console.log(provider)
+            firebase.auth().signInWithPopup(provider)
+                .then(result=>console.log(result))
+                .catch(err=>console.log(err))
+        }
+    }
+    firebase.auth().onAuthStateChanged(newLoginHappened);
+
+}
+
+function showUser(user){
+    console.log(user)
+    document.getElementById('loggedInUser').innerHTML = user.displayName
+    
+}
