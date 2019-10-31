@@ -135,24 +135,22 @@ function makeResetButtonAppearDisappear(checkCounter) {
 function checkWinner(response) {
     console.log(response)
     if (response.includes('1')) {
-        if (response.includes('2' || '4' || '5')) {
+        if (response.includes('2')) {
             if (response.includes('3')) {
-                if (response.includes('2')) {
-                    changeButtonColor([1, 2, 3])
-                    return true;
-                }
+                changeButtonColor([1, 2, 3])
+                return true; S
             }
-            if (response.includes('7')) {
-                if (response.includes('4')) {
-                    changeButtonColor([1, 4, 7])
-                    return true;
-                }
+        }
+        if (response.includes('7')) {
+            if (response.includes('4')) {
+                changeButtonColor([1, 4, 7])
+                return true;
             }
-            if (response.includes('5')) {
-                if (response.includes('9')) {
-                    changeButtonColor([1, 5, 9])
-                    return true;
-                }
+        }
+        if (response.includes('5')) {
+            if (response.includes('9')) {
+                changeButtonColor([1, 5, 9])
+                return true;
             }
         }
     }
@@ -165,19 +163,19 @@ function checkWinner(response) {
         }
     }
     if (response.includes('3')) {
-        if (response.includes('6' || '5')) {
+        if (response.includes('6')) {
             if (response.includes('9')) {
-                if (response.includes('6')) {
-                    changeButtonColor([3, 6, 9])
-                    return true;
-                }
+                changeButtonColor([3, 6, 9])
+                return true;
             }
+
+        }
+        if (response.includes('5')) {
             if (response.includes('7')) {
                 changeButtonColor([3, 5, 7])
                 return true;
             }
         }
-
     }
     if (response.includes('4')) {
         if (response.includes('5')) {
@@ -186,7 +184,8 @@ function checkWinner(response) {
                 return true;
             }
         }
-    } else if (response.includes('7')) {
+    }
+    if (response.includes('7')) {
         if (response.includes('8')) {
             if (response.includes('9')) {
                 changeButtonColor([7, 8, 9])
