@@ -131,6 +131,7 @@ function makeResetButtonAppearDisappear(checkCounter) {
         resetButton.style.visibility = "hidden"
     }
 }
+
 function checkWinner(response) {
     console.log(response)
     if (response.includes('1')) {
@@ -198,7 +199,7 @@ function checkWinner(response) {
 
 function changeButtonColor(buttonIds) {
     buttonIds.forEach(buttonId => {
-        document.getElementById(buttonId).style.backgroundColor = "#89e200"
+        document.getElementById(buttonId).style.backgroundColor = "#2ecc71"
     })
 }
 
@@ -228,8 +229,8 @@ function updatePlayerScore() {
 // Your web app's Firebase configuration
 // Initialize the FirebaseUI Widget using Firebase.
 
-let loggedInUser = document.getElementById('loggedInUser');
-loggedInUser.addEventListener('click', login)
+let signInWIthGoogle = document.getElementById('signInWIthGoogle');
+signInWIthGoogle.addEventListener('click', login)
 var firebaseConfig = {
     apiKey: "AIzaSyCnTNO9SbcP27TYTLUvu5vsw-0Jl9O73h8",
     authDomain: "tic-tok-toe.firebaseapp.com",
@@ -265,6 +266,10 @@ function login() {
 
 function showUser(user) {
     console.log(user)
-    document.getElementById('loggedInUser').innerHTML = user.displayName
-
+    document.getElementById('signnedInButton').style.display = 'block'
+    document.getElementById('loggedInUserName').innerHTML = user.displayName;
+    document.getElementById('loggedInUserImage').setAttribute('src',user.photoURL);
+    document.getElementById('signInWIthGoogle').style.display = 'none'
 }
+document.getElementById('signnedInButton').style.display = 'none'
+document.getElementById('signInWIthGoogle').style.display = 'block'
