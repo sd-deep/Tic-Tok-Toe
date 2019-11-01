@@ -3,16 +3,27 @@
     padding: 0;
     box-sizing: border-box;
   }
+  :root{
+    --dark-primary-color:#2980b9;
+    --primary-color: #3498db;
+    --dark-secondary-color:#16a085;
+    --secondary-color: #1abc9c;
+    --success-color:#42e64f;
+    --background-color:white;
+    --scoreboard-color:black;
+    --heading-color: black;
+  }
   body {
     margin:0;
     font-family: 'Nova Round', cursive;
-    
+    overflow-y: hidden;
+  white-space: nowrap;
   }
   
   nav {
     height: 6vh;
-    background: #3700B3;
-    box-shadow: 2px 4px 4px 4px black;
+    background: var(--dark-primary-color);
+    padding:20px;
   }
   
   .nav-links {
@@ -35,11 +46,53 @@
     }
   .heading{
       align-self: end;
-      color:white;
+      color:var(--heading-color);
       animation-duration: 1s;
       margin-bottom: 10px;
+      margin-top: 10px;
     }
   
+/*google signin button*/
+.google-button {
+  height: 35px;
+  border-width: 0;
+  background: white;
+  color: #737373;
+  border-radius: 5px;
+  white-space: nowrap;
+  box-shadow: 1px 1px 0px 1px rgba(0,0,0,0.05);
+  transition-property: background-color, box-shadow;
+  transition-duration: 150ms;
+  transition-timing-function: ease-in-out;
+  padding: 0;
+}
+.google-button:focus, .google-button:hover{
+  box-shadow: 1px 4px 5px 1px rgba(0,0,0,0.1);
+}
+
+    
+.google-button__icon {
+  display: inline-block;
+  vertical-align: middle;
+  margin: 8px 0 8px 8px;
+  width: 18px;
+  height: 18px;
+  box-sizing: border-box;
+}
+
+.google-button__icon--plus {
+  width: 27px;
+}
+
+.google-button__text {
+  display: inline-block;
+  vertical-align: middle;
+  padding: 0 24px;
+  font-size: 14px;
+  font-weight: bold;
+  font-family: 'Roboto',arial,sans-serif;
+}
+/**/
 .main-container{
     display:grid;
     grid-template-rows: 1fr 2fr .5fr 1fr 1fr;
@@ -47,10 +100,14 @@
     height: 100vh;
     justify-items: center;
     align-items: center;
-    background-color: #6200EE;
+    /*background-color: var(--background-color);*/
+    background-color: #34b9b2;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100%25' height='100%25' viewBox='0 0 2 1'%3E%3Cdefs%3E%3ClinearGradient id='a' gradientUnits='userSpaceOnUse' x1='0' x2='0' y1='0' y2='1' gradientTransform='rotate(159,0.5,0.5)'%3E%3Cstop offset='0' stop-color='%2334b9b2'/%3E%3Cstop offset='1' stop-color='%233498db'/%3E%3C/linearGradient%3E%3ClinearGradient id='b' gradientUnits='userSpaceOnUse' x1='0' y1='0' x2='0' y2='1' gradientTransform='rotate(257,0.5,0.5)'%3E%3Cstop offset='0' stop-color='%232980b9' stop-opacity='0'/%3E%3Cstop offset='1' stop-color='%232980b9' stop-opacity='1'/%3E%3C/linearGradient%3E%3ClinearGradient id='c' gradientUnits='userSpaceOnUse' x1='0' y1='0' x2='2' y2='2' gradientTransform='rotate(43,0.5,0.5)'%3E%3Cstop offset='0' stop-color='%232980b9' stop-opacity='0'/%3E%3Cstop offset='1' stop-color='%232980b9' stop-opacity='1'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect x='0' y='0' fill='url(%23a)' width='2' height='1'/%3E%3Cg fill-opacity='0.5'%3E%3Cpolygon fill='url(%23b)' points='0 1 0 0 2 0'/%3E%3Cpolygon fill='url(%23c)' points='2 1 2 0 0 0'/%3E%3C/g%3E%3C/svg%3E");
+    background-attachment: fixed;
+    background-size: cover;                                     
 }
 .scoreBoard{
-    color:white;
+    color:var(--scoreboard-color);
     margin-bottom: 10px;
 }
 
@@ -68,10 +125,10 @@
     border-radius: 5px;
     justify-items: center;
     align-items: center;  
-    gap: 15px;
+    grid-gap: 1em;
     grid-template-columns: 1fr 1fr 1fr;
     grid-template-rows: 1fr 1fr 1fr;
-    background-color: #018786;
+    background-color: var(--primary-color);
     box-shadow: 2px 4px 4px 4px black;
 }
 .cell{
@@ -79,11 +136,12 @@
     height:1.2em;
     cursor:pointer;
     border-radius: 5px;
-    box-shadow: 1px 2px 2px 2px black;
+    box-shadow: 1px 2px 4px 2px black;
     transition: all ease .5s;
     font-weight: bolder;
     font-size: 3em;
-    color:#018786;
+    background: var(--secondary-color);
+    color:white;
 }
 .cell:hover{
     box-shadow: 1px 2px 2px 2px black;
@@ -97,8 +155,8 @@
     box-shadow: 1px 2px 2px 2px black;
     width: 150px;
     height:30px;
-    background-color: #018786;
-    color: black;
+    background-color: var(--dark-secondary-color);
+    color: white;
     font-size: 1.2em;
     transition: all ease .5s;
     cursor: pointer;  
@@ -112,7 +170,7 @@
     position : relative;
     visibility: hidden;
     font-size: 1.1em;
-    color : white;
+    color : var(--scoreboard-color);
 
 }
 button:focus {outline:0;}
@@ -139,7 +197,7 @@ button:focus {outline:0;}
   
     .nav-links {
       position: fixed;
-      background: #018786;
+      background: var(--dark-primary-color);
       height: 100vh;
       width: 100%;
       flex-direction: column;
