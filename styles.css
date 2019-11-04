@@ -136,7 +136,7 @@
     height:1.2em;
     cursor:pointer;
     border-radius: 5px;
-    box-shadow: 1px 2px 4px 2px black;
+    box-shadow: 1px 2px 2px 2px black;
     transition: all ease .5s;
     font-weight: bolder;
     font-size: 3em;
@@ -144,7 +144,7 @@
     color:white;
 }
 .cell:hover{
-    box-shadow: 1px 2px 2px 2px black;
+    box-shadow: 2px 2px 4px 2px black;
     transform: scale3d(1.1, 1.1, 0.3)
 
 }
@@ -163,7 +163,7 @@
     animation-duration: 2s;
 }
 .reset:hover{
-    box-shadow: 2px 3px rgb(75, 70, 70);
+    box-shadow: 2px 2px 4px 2px black;
     transform: scale3d(1.2, 1.2, 0.3)
 }
 #winnerName{
